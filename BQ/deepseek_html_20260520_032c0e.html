@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>QuímicaTotal - Ensino Médio ao Técnico</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- MathJax para equações -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <!-- Chart.js para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- jsPDF para certificados -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0d6efd">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="QuímicaTotal">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230d6efd'/%3E%3Ctext x='50' y='67' font-size='50' text-anchor='middle' fill='white'%3E⚗️%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>⚗️ QuímicaTotal</h1>
+            <p>Do Ensino Médio à formação Técnica - Conteúdo aprofundado</p>
+            <div class="header-controls">
+                <input type="text" id="searchInput" placeholder="Buscar artigos...">
+                <button id="themeToggle">🌙 Modo escuro</button>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul class="categories">
+            <li><button data-cat="all">📚 Todos</button></li>
+            <li><button data-cat="geral">🧪 Química Geral</button></li>
+            <li><button data-cat="fisico">🔥 Físico-Química</button></li>
+            <li><button data-cat="organica">🌿 Química Orgânica</button></li>
+            <li><button data-cat="analitica">📊 Analítica</button></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <aside class="sidebar">
+            <h3>📑 Índice Rápido</h3>
+            <ul id="indexList"></ul>
+            <hr style="margin: 1rem 0;">
+            <h3>⭐ Favoritos</h3>
+            <ul id="favoritesList"></ul>
+        </aside>
+
+        <section class="content" id="postsContainer"></section>
+    </main>
+
+    <!-- Chat flutuante -->
+    <button id="openChatFloatBtn" style="position: fixed; bottom: 20px; right: 20px; background: #0d6efd; color: white; border: none; border-radius: 50px; padding: 0.8rem 1.2rem; cursor: pointer; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+        💬 Chat
+    </button>
+    <div id="chatFloat" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 300px; background: white; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 1000; flex-direction: column; overflow: hidden;">
+        <div style="background: #0d6efd; color: white; padding: 0.5rem 1rem; display: flex; justify-content: space-between;">
+            <span>💬 Chat - QuímicaTotal</span>
+            <button id="closeChatFloatBtn" style="background: none; border: none; color: white; cursor: pointer;">✕</button>
+        </div>
+        <div id="chatMessagesList" style="height: 250px; overflow-y: auto; padding: 0.5rem; font-size: 0.9rem;"></div>
+        <div style="padding: 0.5rem; border-top: 1px solid #dee2e6; display: flex;">
+            <input type="text" id="chatMessageInput" placeholder="Digite sua mensagem..." style="flex: 1; padding: 0.3rem; border: 1px solid #dee2e6; border-radius: 3px;">
+            <button id="sendChatMessageBtn" style="background: #0d6efd; color: white; border: none; padding: 0.3rem 0.6rem; border-radius: 3px; margin-left: 0.3rem;">Enviar</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>📚 Conteúdo livre para estudos | 🔬 Química do Ensino Médio ao Técnico</p>
+        <p>⚗️ QuímicaTotal - Seu portal de conhecimento químico</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
